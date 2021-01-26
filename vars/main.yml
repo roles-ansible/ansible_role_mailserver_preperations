@@ -1,4 +1,4 @@
 ---
 # versionscheck
-playbook_version_number: 33 # should be a integer
+playbook_version_number: 34  # should be a integer
 playbook_version_path: 'role-mailserver_preperations_roles-ansible_github.version'

@@ -15,12 +15,15 @@
 - name: Create mail user sieve directory
   become: true
   file:
-    path: "{{ mailserver__home }}/sieve/global"
+    path: "{{ item }}"
     state: directory
     owner: vmail
     group: vmail
-    mode: 0770
-    recurse: true
+    mode: 0750
+  with_items:
+    - "{{ mailserver__home }}"
+    - "{{ mailserver__home }}/sieve"
+    - "{{ mailserver__home }}/sieve/global"
 
 - name: Create mail user mailbox directory
   become: true
