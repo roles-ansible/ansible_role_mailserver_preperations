@@ -16,7 +16,7 @@ mailserver__user: 'vmail'
 mailserver__group: 'vmail'
 mailserver__home: '/var/vmail'
 mailserver__shell: '/bin/false'
-
+mailserver__mariadb__no_log: true
 
 mailserver__domains: []
 #  - fqdn: example.com

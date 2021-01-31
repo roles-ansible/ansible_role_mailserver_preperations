@@ -1,7 +1,7 @@
 ---
 - name: create database schema store dir
   become: true
-  file:
+  ansible.builtin.file:
     path: /root/.mariadb_schema
     state: directory
     mode: '0755'
@@ -10,16 +10,41 @@
 
 - name: Copy database schema
   become: true
-  copy:
+  ansible.builtin.copy:
     src: files/schema.sql
     dest: /root/.mariadb_schema/schema.sql
     mode: '0644'
   notify: create database schema
+  no_log: "{{ mailserver__mariadb__no_log }}"
 
 - name: Copy mail config
   become: true
-  template:
+  ansible.builtin.template:
     src: templates/mysqlconfig.sql.j2
     dest: /root/.mariadb_schema/config.sql
     mode: '0644'
   notify: import mail database config
+  no_log: "{{ mailserver__mariadb__no_log }}"
+
+- name: validate mariadb contains correct database
+  become: true
+  community.mysql.mysql_info:
+    filter: databases
+  register: mailserver_existing_databases
+
+- name: trigger import mail database config
+  ansible.builtin.debug:
+    msg: "Database vmail not found, trigger database creation again"
+  notify:
+    - create database schema
+    - import mail database config
+  changed_when: true
+  when: mailserver_existing_databases.databases.vmail is not defined
+
+- name: fail if mysql database is absent
+  ansible.builtin.fail:
+    msg: "iThe database 'mysql' did not exists. There is probably something wrong with your mysql installation. If not pleas open a issue!"
+  when: mailserver_existing_databases.databases.mysql is not defined
+
+- name: trigger databases operations now
+  ansible.builtin.meta: flush_handlers
