@@ -12,10 +12,26 @@ BE CAREFULL, IF YOU THINK ABOUT USING IT
 IT IS NOT FULLY DOCUMENTATED, NOT EVEN THE OTHER REQUIRED ROLES
 ```
 
+ What is the purpose of this Ansible role?
+-------------------------------------------
+
+The Ansible role was created when [L3D](https://github.com/DO1JLR) set up a mail server. This role performs a few preliminary tasks for the mail server setup.
+
+The role is intended to be used in conjunction with the following Ansible roles to set up a mail server. The setup was largely inspired by the instructions on [https://thomas-leister.de/mailserver-debian-buster/](thomas-leister.de/mailserver-debian-buster/).
+
+ What exactly is being done?
+-----------------------------
+
+As an optional step, a simple version check can be performed.
+
+First, the hostname of the system is set. For a mailing server, the name of the server used is an important part. For more details have a look at [tasks/hosts.yml](tasks/hosts.yml)
+
+
+
+
  Testing
 ----------
-This role is tested with [these github-action](https://github.com/search?q=topic%3Acheck-ansible+topic%3Agithub-actions+org%3Aroles-ansible&type=Repositories) tests for different versions of differen linux systems. Linting is tested via travis-ci and the  [ansible-lint action](https://github.com/marketplace/actions/ansible-lint).
-If you want to find out more about our tests, please have a look at the github marketplace.
+We are using some github actions for publishing and linting checks. If you know a good testing method for ansible that is using systemd stuff please let us know. For more infos about the tests, please have a look at the github marketplace.
 
 | test status | Github Marketplace |
 | :---------  | :----------------  |
