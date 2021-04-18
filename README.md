@@ -1,13 +1,13 @@
  ansible_role_mailserver_preperations
 ======================================
-Ansible role to prepare the setup for a mail server with postfix und dovecot
+Preperation, User and Database Configuration ansible role for a mailserver Setup
 
 ```
 ATTENTION
 
 THIS IS A WORK IN PROGRESS
 
-BE CAREFULL, IF YOU THINK ABOUT USING IT
+BE CAREFULL, IF YOU THINK ABOUT USING IT. EVERYTHING HERE CAN CHANGE!!!
 
 IT IS NOT FULLY DOCUMENTATED, NOT EVEN THE OTHER REQUIRED ROLES
 ```
@@ -26,8 +26,9 @@ As an optional step, a simple version check can be performed.
 
 First, the hostname of the system is set. For a mailing server, the name of the server used is an important part. For more details have a look at [tasks/hosts.yml](tasks/hosts.yml)
 
+Next, create a user and a group for the mail history. And a few folders that are needed. More details in [tasks/user.yml](tasks/user.yml).
 
-
+And as the last important step, a template for creating a database is deployed. And the data for the MySQL database is deployed. This requires that a mysql database exists before.
 
  Testing
 ----------

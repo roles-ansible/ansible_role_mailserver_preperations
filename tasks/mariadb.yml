@@ -43,7 +43,7 @@
 
 - name: fail if mysql database is absent
   ansible.builtin.fail:
-    msg: "iThe database 'mysql' did not exists. There is probably something wrong with your mysql installation. If not pleas open a issue!"
+    msg: "The database 'mysql' did not exists. There is probably something wrong with your mysql installation. If not pleas open a issue!"
   when: mailserver_existing_databases.databases.mysql is not defined
 
 - name: trigger databases operations now
