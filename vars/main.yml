@@ -1,4 +1,4 @@
 ---
 # versionscheck
-playbook_version_number: 40  # should be a integer
+playbook_version_number: 41  # should be a integer
 playbook_version_path: 'do1jlr.mailserver_preperation.version'
