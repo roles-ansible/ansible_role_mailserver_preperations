@@ -1,5 +1,5 @@
 ---
-- name: create mail group
+- name: Create mail group
   become: true
   ansible.builtin.group:
     name: "{{ mailserver__group }}"

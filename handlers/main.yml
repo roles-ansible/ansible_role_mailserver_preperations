@@ -1,16 +1,18 @@
 ---
-- name: create database schema
+- name: Create database schema
+  listen: create database schema
   become: true
-  community.mysql.mysql_db:
+  ansible.mysql.mysql_db:
     name: vmail
     encoding: 'utf8'
     state: import
     target: '/root/.mariadb_schema/schema.sql'
   no_log: "{{ mailserver__mariadb__no_log }}"
 
-- name: import mail database config
+- name: Import mail database config
+  listen: import mail database config
   become: true
-  community.mysql.mysql_db:
+  ansible.mysql.mysql_db:
     name: vmail
     encoding: 'utf8'
     state: import

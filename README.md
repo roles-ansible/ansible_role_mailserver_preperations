@@ -5,7 +5,7 @@ Preperation, User and Database Configuration ansible role for a mailserver Setup
 ```
 ATTENTION
 
-THIS IS A WORK IN PROGRESS
+THIS IS END OF LIFE
 
 BE CAREFULL, IF YOU THINK ABOUT USING IT. EVERYTHING HERE CAN CHANGE!!!
 
