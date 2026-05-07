@@ -1,13 +1,13 @@
 ---
-- name: perform optional versionscheck
+- name: Perform optional versionscheck
   ansible.builtin.include_tasks: versioncheck.yml
-  when: submodules_versioncheck|bool
+  when: Submodules_versioncheck|bool
 
-- name: configure local hostnames
+- name: Configure local hostnames
   ansible.builtin.include_tasks: hosts.yml
 
-- name: configure vmail user
+- name: Configure vmail user
   ansible.builtin.include_tasks: user.yml
 
-- name: configure mariadb
+- name: Configure mariadb
   ansible.builtin.include_tasks: mariadb.yml

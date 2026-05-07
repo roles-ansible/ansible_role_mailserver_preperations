@@ -2,16 +2,16 @@
 galaxy_info:
   role_name: mailserver_preperation
   author: do1jlr
-  description: Preperation, User and Database Configuration ansible role for a mailserver Setup
+  description: Preperation, User and Database Configuration ansible role for a mailserver Setup [EOL]
   license: "MIT"
-  min_ansible_version: 2.11
-  github_branch: main
+  min_ansible_version: "2.16"
   platforms:
     - name: Debian
-      versions: all
+      versions: ['all']
   galaxy_tags:
     - mail
     - mailserver
     - preperation
     - vmail
+    - linux
 dependencies: []
