@@ -28,7 +28,7 @@
 
 - name: validate mariadb contains correct database
   become: true
-  community.mysql.mysql_info:
+  ansible.mysql.mysql_info:
     filter: databases
   register: mailserver_existing_databases
 

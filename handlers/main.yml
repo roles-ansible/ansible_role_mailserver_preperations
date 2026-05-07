@@ -1,7 +1,7 @@
 ---
 - name: create database schema
   become: true
-  community.mysql.mysql_db:
+  ansible.mysql.mysql_db:
     name: vmail
     encoding: 'utf8'
     state: import
@@ -10,7 +10,7 @@
 
 - name: import mail database config
   become: true
-  community.mysql.mysql_db:
+  ansible.mysql.mysql_db:
     name: vmail
     encoding: 'utf8'
     state: import
