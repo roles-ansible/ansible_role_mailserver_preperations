@@ -1,7 +1,7 @@
 ---
 - name: Perform optional versionscheck
   ansible.builtin.include_tasks: versioncheck.yml
-  when: Submodules_versioncheck|bool
+  when: submodules_versioncheck|bool
 
 - name: Configure local hostnames
   ansible.builtin.include_tasks: hosts.yml

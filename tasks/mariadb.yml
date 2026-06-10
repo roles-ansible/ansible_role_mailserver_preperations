@@ -24,7 +24,6 @@
     dest: /root/.mariadb_schema/config.sql
     mode: '0644'
   notify: import mail database config
-  no_log: "{{ mailserver__mariadb__no_log }}"
 
 - name: Validate mariadb contains correct database
   become: true
